@@ -14,6 +14,7 @@
 		7376A8CA1CA96556008C99C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7376A8C81CA96556008C99C4 /* LaunchScreen.storyboard */; };
 		7376A8D51CA96556008C99C4 /* KanbanFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7376A8D41CA96556008C99C4 /* KanbanFlowTests.swift */; };
 		7376A8E01CA96556008C99C4 /* KanbanFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7376A8DF1CA96556008C99C4 /* KanbanFlowUITests.swift */; };
+		73DB3C4F1CAC126900EF1967 /* UserDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */; };
 		73E21DE81CABCAE400FF2427 /* allUserTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		7376A8DB1CA96556008C99C4 /* KanbanFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanbanFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7376A8DF1CA96556008C99C4 /* KanbanFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanFlowUITests.swift; sourceTree = "<group>"; };
 		7376A8E11CA96556008C99C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewController.swift; sourceTree = "<group>"; };
 		73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allUserTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			children = (
 				7376A8C11CA96556008C99C4 /* ViewController.swift */,
 				73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */,
+				73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				7376A8C21CA96556008C99C4 /* ViewController.swift in Sources */,
 				73E21DE81CABCAE400FF2427 /* allUserTableTableViewController.swift in Sources */,
 				7376A8C01CA96556008C99C4 /* AppDelegate.swift in Sources */,
+				73DB3C4F1CAC126900EF1967 /* UserDetailsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

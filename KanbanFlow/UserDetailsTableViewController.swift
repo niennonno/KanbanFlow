@@ -1,5 +1,5 @@
 //
-//  allUserTableTableViewController.swift
+//  UserDetailsTableViewController.swift
 //  KanbanFlow
 //
 //  Created by Aditya Vikram Godawat on 30/03/16.
@@ -8,36 +8,34 @@
 
 import UIKit
 
-class allUserTableTableViewController: UITableViewController {
-    
-    //MARK: - Variables
-    
-    let accessToken = mAccessToken
-    
+class UserDetailsTableViewController: UITableViewController {
+
+    var aUsername = ""
     var aResult: NSDictionary!
+    var aId = ""
+    var accessToken = mAccessToken
+    
     var aData: [NSDictionary]!
     var status: NSString!
+
     
-    var aFullName = [String]()
-    var aUserId = [String]()
-//    var aEmail = [String]()
-    var selectedRow = Int()
-    
+    var aBoardnames = [String]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.aFullName.removeAll(keepCapacity: true)
-        
-        
-        getAllUsers()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.aBoardnames.removeAll(keepCapacity: true)
+
+        
+        fetchBoards()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +43,35 @@ class allUserTableTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Table view data source
 
-    //MARK: - My Own Functions
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return aBoardnames.count
+    }
+
     
-    
-    func getAllUsers() {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+
+        cell.textLabel?.text = aBoardnames[indexPath.row]
         
-        let aRequest = NSMutableURLRequest(URL: NSURL(string: "http://techiela.com/api/getAllUsers")!)
+        // Configure the cell...
+
+        return cell
+    }
+    
+    
+    //MARK:-My Own Functions
+    
+    func fetchBoards(){
+        
+        let aRequest = NSMutableURLRequest(URL: NSURL(string: "http://techiela.com/api/getUserProjects/" + aId)!)
         
         aRequest.HTTPMethod = "GET"
         aRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -65,24 +85,23 @@ class allUserTableTableViewController: UITableViewController {
                 if aHttpResponse.statusCode == 200 {
                     
                     self.aResult = (try! NSJSONSerialization.JSONObjectWithData(aData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-
+                    
+                    //print(self.aResult)
+                    
                     self.status = self.aResult["status"] as! String
                     self.aData = self.aResult["data"] as! [NSDictionary]
                     
                     for data in self.aData {
                         
-                        self.aFullName.append(data["fullName"] as! String)
-                        self.aUserId.append(data["_id"] as! String)
-//                        self.aEmail.append(data["email"] as! String)
-                    
+                        self.aBoardnames.append(data["boardName"] as! String)
+                        
                     }
-                    
-                   // print(self.aUserId)
+
                     
                 }
-                    dispatch_group_leave(aGroup)
-                    
-
+                dispatch_group_leave(aGroup)
+                
+                
             } else {
                 print(aError?.localizedDescription)
                 dispatch_group_leave(aGroup)
@@ -92,39 +111,11 @@ class allUserTableTableViewController: UITableViewController {
         
         dispatch_group_wait(aGroup, DISPATCH_TIME_FOREVER)
         
-    }
-    
-    
-    // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.aFullName.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-        cell.textLabel!.text = self.aFullName[indexPath.row]
         
-        // Configure the cell...
+    }
 
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.selectedRow = indexPath.row
-        
-        performSegueWithIdentifier("userDetails", sender: self)
-    
-    }
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -160,24 +151,14 @@ class allUserTableTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-        
-        if segue.identifier == "userDetails" {
-            
-            if let destination = segue.destinationViewController as? UserDetailsTableViewController {
-                
-               destination.aUsername = aFullName[selectedRow]
-               destination.aId = aUserId[selectedRow]
-                
-            }
-            
-        }
-        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }
