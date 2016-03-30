@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+var mAccessToken: String!
+
 class ViewController: UIViewController{
     
     var aResult: NSDictionary!
@@ -15,8 +18,6 @@ class ViewController: UIViewController{
   //MARK:- IBAction
     
     @IBAction func mSignInProcess(sender: AnyObject) {
-        
-        self.view.endEditing:YES
         
         if(aUsernameTextField.text == "" || aPasswordTextField == ""){      //Error Handling
             
@@ -49,15 +50,13 @@ class ViewController: UIViewController{
   
     //MARK:- Overriden Functions
   
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        self.view.endEditing(true)
-        
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
- //MARK:- My own functions
     
-    
+    //MARK:- My own functions
     
     func loginFunction(){
         
@@ -74,15 +73,21 @@ class ViewController: UIViewController{
         
         let aTask = NSURLSession.sharedSession().dataTaskWithRequest(aRequest, completionHandler: { (aData: NSData?,  aResponse: NSURLResponse?, aError: NSError?) -> Void in
             
-            if let aHttpResponse = aResponse as? NSHTTPURLResponse {
+            if let _ = aResponse as? NSHTTPURLResponse {
                 print("Success! Got response!")
-                  print(aHttpResponse)
+                  //print(aHttpResponse)
         
                 self.aResult = (try! NSJSONSerialization.JSONObjectWithData(aData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
                 
                 if self.aResult["status"] as! NSString == "success" {
                     
-                    print(self.aResult)
+                    let aData = self.aResult["data"]
+                    
+                    mAccessToken = aData!["token"] as! String
+                    
+                    print(mAccessToken)
+                    
+                    self.performSegueWithIdentifier("takeMeToAllUsers", sender: self)
                 
                 } else if self.aResult["status"] as! NSString == "fail" {
                     

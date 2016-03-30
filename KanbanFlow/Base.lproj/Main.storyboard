@@ -86,11 +86,58 @@
                     <connections>
                         <outlet property="aPasswordTextField" destination="8yn-0x-D0d" id="PgH-wv-tnP"/>
                         <outlet property="aUsernameTextField" destination="blH-fv-Tqk" id="vY3-XY-Uob"/>
+                        <segue destination="au8-t4-fcZ" kind="show" identifier="takeMeToAllUsers" id="1qS-ju-dPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82.5" y="294.5"/>
+            <point key="canvasLocation" x="-618.5" y="322.5"/>
+        </scene>
+        <!--All Users-->
+        <scene sceneID="jqd-od-CJA">
+            <objects>
+                <tableViewController id="cjd-Az-c4z" customClass="allUserTableTableViewController" customModule="KanbanFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BVJ-TF-Svc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ykZ-JF-Plc">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ykZ-JF-Plc" id="weg-lm-ALR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cjd-Az-c4z" id="CGo-Ja-gR1"/>
+                            <outlet property="delegate" destination="cjd-Az-c4z" id="RyM-Te-2ar"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Users" id="uEr-Uv-c64"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jC0-eG-OLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212.5" y="322.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VWH-Lx-9ZI">
+            <objects>
+                <navigationController id="au8-t4-fcZ" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CpF-mz-bzE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cjd-Az-c4z" kind="relationship" relationship="rootViewController" id="yka-6y-SH6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nf-xN-nNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-209.5" y="322.5"/>
         </scene>
     </scenes>
 </document>
