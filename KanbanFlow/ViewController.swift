@@ -16,6 +16,8 @@ class ViewController: UIViewController{
     
     @IBAction func mSignInProcess(sender: AnyObject) {
         
+        self.view.endEditing:YES
+        
         if(aUsernameTextField.text == "" || aPasswordTextField == ""){      //Error Handling
             
             alert("Error", message: "Enter Username and Password")
@@ -74,11 +76,21 @@ class ViewController: UIViewController{
             
             if let aHttpResponse = aResponse as? NSHTTPURLResponse {
                 print("Success! Got response!")
-                //  print(aHttpResponse)
-                
-                self.aResult = (try! NSJSONSerialization.JSONObjectWithData(aData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-                print(self.aResult)
+                  print(aHttpResponse)
         
+                self.aResult = (try! NSJSONSerialization.JSONObjectWithData(aData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+                
+                if self.aResult["status"] as! NSString == "success" {
+                    
+                    print(self.aResult)
+                
+                } else if self.aResult["status"] as! NSString == "fail" {
+                    
+                    self.alert("Error", message: "Can't log you in")
+                    
+                }
+                
+                
                 dispatch_group_leave(aGroup)
                 
             } else {
