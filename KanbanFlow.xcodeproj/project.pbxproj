@@ -20,6 +20,8 @@
 		730F39E81CB3CB75009250F8 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F39DD1CB3CB75009250F8 /* YokoTextField.swift */; };
 		730F39E91CB3CB75009250F8 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F39DE1CB3CB75009250F8 /* YoshikoTextField.swift */; };
 		730F39EB1CB3DEDA009250F8 /* AllBoardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F39EA1CB3DEDA009250F8 /* AllBoardsTableViewController.swift */; };
+		730F39ED1CB3E73C009250F8 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F39EC1CB3E73C009250F8 /* UserTableViewCell.swift */; };
+		730F39EF1CB3F02E009250F8 /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F39EE1CB3F02E009250F8 /* UserDetailsTableViewCell.swift */; };
 		7376A8C01CA96556008C99C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7376A8BF1CA96556008C99C4 /* AppDelegate.swift */; };
 		7376A8C21CA96556008C99C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7376A8C11CA96556008C99C4 /* ViewController.swift */; };
 		7376A8C51CA96556008C99C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7376A8C31CA96556008C99C4 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		730F39DD1CB3CB75009250F8 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
 		730F39DE1CB3CB75009250F8 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
 		730F39EA1CB3DEDA009250F8 /* AllBoardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllBoardsTableViewController.swift; sourceTree = "<group>"; };
+		730F39EC1CB3E73C009250F8 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		730F39EE1CB3F02E009250F8 /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		7376A8BC1CA96556008C99C4 /* KanbanFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KanbanFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7376A8BF1CA96556008C99C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7376A8C11CA96556008C99C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				7376A8C11CA96556008C99C4 /* ViewController.swift */,
 				73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */,
 				730F39EA1CB3DEDA009250F8 /* AllBoardsTableViewController.swift */,
+				730F39EC1CB3E73C009250F8 /* UserTableViewCell.swift */,
+				730F39EE1CB3F02E009250F8 /* UserDetailsTableViewCell.swift */,
 				73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -403,7 +409,9 @@
 				730F39E91CB3CB75009250F8 /* YoshikoTextField.swift in Sources */,
 				730F39EB1CB3DEDA009250F8 /* AllBoardsTableViewController.swift in Sources */,
 				730F39E51CB3CB75009250F8 /* MadokaTextField.swift in Sources */,
+				730F39EF1CB3F02E009250F8 /* UserDetailsTableViewCell.swift in Sources */,
 				7376A8C21CA96556008C99C4 /* ViewController.swift in Sources */,
+				730F39ED1CB3E73C009250F8 /* UserTableViewCell.swift in Sources */,
 				73E21DE81CABCAE400FF2427 /* allUserTableTableViewController.swift in Sources */,
 				7376A8C01CA96556008C99C4 /* AppDelegate.swift in Sources */,
 				730F39E61CB3CB75009250F8 /* MinoruTextField.swift in Sources */,

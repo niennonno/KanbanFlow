@@ -21,8 +21,8 @@ class UserDetailsTableViewController: UITableViewController {
     var status: NSString!
 
     
-    var aBoardnames = [String]()
-    
+    var aBoardNames = [String]()
+    var allColumns = [NSDictionary]()
     
     //MARK: - Overridden Functions
     
@@ -35,9 +35,7 @@ class UserDetailsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.aBoardnames.removeAll(keepCapacity: true)
-
-        
+        self.aBoardNames.removeAll(keepCapacity: true)
         fetchBoards()
         
     }
@@ -56,14 +54,14 @@ class UserDetailsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return aBoardnames.count
+        return aBoardNames.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell: UserDetailsTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserDetailsTableViewCell
 
-        cell.textLabel?.text = aBoardnames[indexPath.row]
+        cell.aBoardName.text = aBoardNames[indexPath.row]
         
         // Configure the cell...
 
@@ -97,10 +95,24 @@ class UserDetailsTableViewController: UITableViewController {
                     
                     for data in self.aData {
                         
-                        self.aBoardnames.append(data["boardName"] as! String)
+                        self.aBoardNames.append(data["boardName"] as! String)
+                        let aColumnsResult = data["columns"] as! [NSDictionary]
+                    
+                        
+                        
+                        for aColumn in aColumnsResult {
+                            
+                             let aColumnName = aColumn["columnName"] as? String
+                            
+                            self.allColumns.append(aColumn as! NSDictionary)
+                            
+                            print(self.allColumns)
+                            
+                        }
                         
                     }
-
+                    
+                    print(self.allColumns)
                     
                 }
                 dispatch_group_leave(aGroup)

@@ -20,7 +20,7 @@ class allUserTableTableViewController: UITableViewController {
     
     var aFullName = [String]()
     var aUserId = [String]()
-//    var aEmail = [String]()
+    var aEmail = [String]()
     var selectedRow = Int()
     
     
@@ -29,6 +29,8 @@ class allUserTableTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.aFullName.removeAll(keepCapacity: true)
+        self.aUserId.removeAll(keepCapacity: true)
+        self.aEmail.removeAll(keepCapacity: true)
         
         
         getAllUsers()
@@ -73,7 +75,7 @@ class allUserTableTableViewController: UITableViewController {
                         
                         self.aFullName.append(data["fullName"] as! String)
                         self.aUserId.append(data["_id"] as! String)
-//                        self.aEmail.append(data["email"] as! String)
+                        self.aEmail.append(data["email"] as! String)
                     
                     }
                     
@@ -108,9 +110,10 @@ class allUserTableTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-        cell.textLabel!.text = self.aFullName[indexPath.row]
+        let cell: UserTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserTableViewCell
+        
+        cell.nameLabel.text = aFullName[indexPath.row]
+        cell.emailLabel.text = aEmail[indexPath.row]
         
         // Configure the cell...
 
