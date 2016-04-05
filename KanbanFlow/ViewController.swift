@@ -21,7 +21,7 @@ class ViewController: UIViewController{
         
         if(aUsernameTextField.text == "" || aPasswordTextField == ""){      //Error Handling
             
-            alert("Error", message: "Enter Username and Password")
+            errorLabel.text = "Enter valid Username and Password!"
             
         } else{
         
@@ -35,6 +35,8 @@ class ViewController: UIViewController{
 
     @IBOutlet var aUsernameTextField: UITextField!
     @IBOutlet var aPasswordTextField: UITextField!
+    @IBOutlet var errorLabel: UILabel!
+
     
   //MARK:- Main
     override func viewDidLoad() {
@@ -91,7 +93,7 @@ class ViewController: UIViewController{
                 
                 } else if self.aResult["status"] as! NSString == "fail" {
                     
-                    self.alert("Error", message: "Can't log you in")
+                        self.errorLabel.text = "Can't log you in!"
                     
                 }
                 
@@ -111,11 +113,4 @@ class ViewController: UIViewController{
         
     }
     
-    func alert(title: String, message: String){
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-    }
 }

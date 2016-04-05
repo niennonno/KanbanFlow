@@ -9,6 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KanbanFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -63,6 +64,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rh-Fs-gOZ">
+                                <rect key="frame" x="147" y="308" width="80" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.60392156862745094" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -78,7 +85,9 @@
                             <constraint firstItem="8yn-0x-D0d" firstAttribute="trailing" secondItem="blH-fv-Tqk" secondAttribute="trailing" id="TKp-rc-xSB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="blH-fv-Tqk" secondAttribute="trailing" constant="4" id="dhG-jt-Zk7"/>
                             <constraint firstItem="zob-QS-yue" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g1B-vk-bXp"/>
+                            <constraint firstItem="5Rh-Fs-gOZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gch-cV-1s9"/>
                             <constraint firstItem="zob-QS-yue" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="lSx-qg-em9"/>
+                            <constraint firstItem="5Rh-Fs-gOZ" firstAttribute="top" secondItem="WeK-nZ-JHT" secondAttribute="bottom" constant="8" id="qIH-Av-XPp"/>
                             <constraint firstItem="blH-fv-Tqk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="134" id="xuB-nV-tkn"/>
                         </constraints>
                     </view>
@@ -86,12 +95,12 @@
                     <connections>
                         <outlet property="aPasswordTextField" destination="8yn-0x-D0d" id="PgH-wv-tnP"/>
                         <outlet property="aUsernameTextField" destination="blH-fv-Tqk" id="vY3-XY-Uob"/>
+                        <outlet property="errorLabel" destination="5Rh-Fs-gOZ" id="WoY-5f-EA3"/>
                         <segue destination="au8-t4-fcZ" kind="show" identifier="takeMeToAllUsers" id="1qS-ju-dPj"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618.5" y="322.5"/>
+            <point key="canvasLocation" x="-621.5" y="322.5"/>
         </scene>
         <!--All Users-->
         <scene sceneID="jqd-od-CJA">
@@ -116,7 +125,13 @@
                             <outlet property="delegate" destination="cjd-Az-c4z" id="RyM-Te-2ar"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Users" id="uEr-Uv-c64"/>
+                    <navigationItem key="navigationItem" title="All Users" id="uEr-Uv-c64">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="IFY-3B-cMO">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="hvp-n1-rwj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="4P6-Mu-AjQ" kind="show" identifier="userDetails" id="w0P-mr-ecM"/>
                     </connections>
