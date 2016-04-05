@@ -1,81 +1,45 @@
 //
-//  UserDetailsTableViewController.swift
+//  AllBoardsTableViewController.swift
 //  KanbanFlow
 //
-//  Created by Aditya Vikram Godawat on 30/03/16.
+//  Created by Aditya Vikram Godawat on 05/04/16.
 //  Copyright © 2016 Wow Labz. All rights reserved.
 //
 
 import UIKit
 
-class UserDetailsTableViewController: UITableViewController {
+class AllBoardsTableViewController: UITableViewController {
 
+    //MARK: - User Variables
     
-    // MARK: - User Variables
-    var aUsername = ""
-    var aResult: NSDictionary!
-    var aId = ""
     var accessToken = mAccessToken
-    
+    var aResult: NSDictionary!
     var aData: [NSDictionary]!
     var status: NSString!
-
     
-    var aBoardnames = [String]()
-    
+    var aBoardName = [String]()
     
     //MARK: - Overridden Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        self.aBoardnames.removeAll(keepCapacity: true)
-
-        
-        fetchBoards()
-        
+        self.aBoardName.removeAll(keepCapacity: true)
+        getAllUsers()
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return aBoardnames.count
-    }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-        cell.textLabel?.text = aBoardnames[indexPath.row]
+    //MARK: - My Own Functions
+    
+    
+    func getAllUsers() {
         
-        // Configure the cell...
-
-        return cell
-    }
-    
-    
-    //MARK:-My Own Functions
-    
-    func fetchBoards(){
-        
-        let aRequest = NSMutableURLRequest(URL: NSURL(string: "http://techiela.com/api/getUserProjects/" + aId)!)
+        let aRequest = NSMutableURLRequest(URL: NSURL(string: "http://techiela.com/api/getAllBoards")!)
         
         aRequest.HTTPMethod = "GET"
         aRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -90,17 +54,17 @@ class UserDetailsTableViewController: UITableViewController {
                     
                     self.aResult = (try! NSJSONSerialization.JSONObjectWithData(aData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
                     
-                    //print(self.aResult)
-                    
                     self.status = self.aResult["status"] as! String
                     self.aData = self.aResult["data"] as! [NSDictionary]
                     
                     for data in self.aData {
                         
-                        self.aBoardnames.append(data["boardName"] as! String)
+                        self.aBoardName.append(data["boardName"] as! String)
+                        
                         
                     }
-
+                    
+                    // print(self.aUserId)
                     
                 }
                 dispatch_group_leave(aGroup)
@@ -115,10 +79,29 @@ class UserDetailsTableViewController: UITableViewController {
         
         dispatch_group_wait(aGroup, DISPATCH_TIME_FOREVER)
         
-
-
-        
     }
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return aBoardName.count
+    }
+
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+
+        cell.textLabel?.text = aBoardName[indexPath.row]
+        
+        return cell
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
