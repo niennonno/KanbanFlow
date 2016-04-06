@@ -21,8 +21,17 @@ class UserDetailsTableViewController: UITableViewController {
     var status: NSString!
 
     
-    var aBoardNames = [String]()
-    var allColumns = [NSDictionary]()
+    struct userData {
+        
+        var boardsName = String()
+        var columns = [NSDictionary]()
+        
+    }
+    
+    var Data = [userData]()
+    
+//    var aBoardNames = [String]()
+//    var allColumns = [[NSDictionary]]()
     
     //MARK: - Overridden Functions
     
@@ -35,7 +44,7 @@ class UserDetailsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.aBoardNames.removeAll(keepCapacity: true)
+        //self.aBoardNames.removeAll(keepCapacity: true)
         fetchBoards()
         
     }
@@ -54,14 +63,14 @@ class UserDetailsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return aBoardNames.count
+        return Data.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UserDetailsTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserDetailsTableViewCell
 
-        cell.aBoardName.text = aBoardNames[indexPath.row]
+        cell.aBoardName.text = Data[indexPath.row].boardsName
         
         // Configure the cell...
 
@@ -92,27 +101,16 @@ class UserDetailsTableViewController: UITableViewController {
                     
                     self.status = self.aResult["status"] as! String
                     self.aData = self.aResult["data"] as! [NSDictionary]
-                    
+                     var someData = userData()
                     for data in self.aData {
                         
-                        self.aBoardNames.append(data["boardName"] as! String)
+                        someData.boardsName = data["boardName"] as! String
                         let aColumnsResult = data["columns"] as! [NSDictionary]
-                    
+                        someData.columns = aColumnsResult
                         
-                        
-                        for aColumn in aColumnsResult {
-                            
-                             let aColumnName = aColumn["columnName"] as? String
-                            
-                            self.allColumns.append(aColumn as! NSDictionary)
-                            
-                            print(self.allColumns)
-                            
-                        }
+                        self.Data.append(someData)
                         
                     }
-                    
-                    print(self.allColumns)
                     
                 }
                 dispatch_group_leave(aGroup)
@@ -122,6 +120,15 @@ class UserDetailsTableViewController: UITableViewController {
                 print(aError?.localizedDescription)
                 dispatch_group_leave(aGroup)
             }
+          
+            for(var i = 0; i < self.Data.count; ++i) {
+                
+               print(self.Data[i].boardsName)
+               print(self.Data[i].columns.count)
+                
+            }
+            
+            
         })
         aTask.resume()
         

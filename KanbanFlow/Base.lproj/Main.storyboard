@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4P6-Mu-AjQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="toO-1P-RMi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -176,6 +176,38 @@
             </objects>
             <point key="canvasLocation" x="77.5" y="-355.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9SO-WX-HZM">
+            <objects>
+                <viewController id="toO-1P-RMi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QLG-5h-u1k"/>
+                        <viewControllerLayoutGuide type="bottom" id="bl0-8v-1Yg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bxb-kb-hzs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvm-D5-wCi" customClass="CardView" customModule="KanbanFlow" customModuleProvider="target">
+                                <rect key="frame" x="226" y="110" width="139" height="109"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="PCE-6K-ORM"/>
+                                    <constraint firstAttribute="height" constant="109" id="lcf-Tl-7mV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vvm-D5-wCi" firstAttribute="centerX" secondItem="bxb-kb-hzs" secondAttribute="centerX" constant="-4.5" id="OOO-V4-4pE"/>
+                            <constraint firstItem="vvm-D5-wCi" firstAttribute="top" secondItem="QLG-5h-u1k" secondAttribute="bottom" constant="90" id="yIu-J6-LFu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m62-S2-ufe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322" y="490"/>
+        </scene>
         <!--User Details Table View Controller-->
         <scene sceneID="v2b-c8-rSG">
             <objects>
@@ -198,31 +230,13 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="aEw-qS-uYj">
-                                            <rect key="frame" x="8" y="41" width="359" height="128"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2j-XS-NgZ">
-                                                    <rect key="frame" x="8" y="0.0" width="99" height="128"/>
-                                                    <color key="backgroundColor" red="0.2666666667" green="0.16078431369999999" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="NUE-mI-E44"/>
-                                                        <constraint firstAttribute="width" constant="99" id="XWn-zx-lut"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="q2j-XS-NgZ" firstAttribute="top" secondItem="aEw-qS-uYj" secondAttribute="top" id="9qO-OV-cv2"/>
-                                                <constraint firstItem="q2j-XS-NgZ" firstAttribute="leading" secondItem="aEw-qS-uYj" secondAttribute="leading" constant="8" id="jiU-ta-DlA"/>
-                                            </constraints>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uk-Xs-dX6">
+                                            <rect key="frame" x="8" y="43" width="359" height="128"/>
                                         </scrollView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aEw-qS-uYj" firstAttribute="leading" secondItem="jpi-yu-t8N" secondAttribute="leadingMargin" id="2hm-38-ZfE"/>
                                         <constraint firstItem="slT-Ib-tgq" firstAttribute="top" secondItem="jpi-yu-t8N" secondAttribute="topMargin" id="3q0-D0-vRV"/>
-                                        <constraint firstItem="aEw-qS-uYj" firstAttribute="trailing" secondItem="jpi-yu-t8N" secondAttribute="trailingMargin" id="Wpd-0P-4hp"/>
                                         <constraint firstItem="slT-Ib-tgq" firstAttribute="centerX" secondItem="jpi-yu-t8N" secondAttribute="centerX" id="k7G-i7-wci"/>
-                                        <constraint firstItem="aEw-qS-uYj" firstAttribute="top" secondItem="slT-Ib-tgq" secondAttribute="bottom" constant="6" id="kSe-ao-RDg"/>
-                                        <constraint firstItem="aEw-qS-uYj" firstAttribute="bottom" secondItem="jpi-yu-t8N" secondAttribute="bottomMargin" id="oFm-Mu-xvQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -261,7 +275,6 @@
         <!--All Boards-->
         <scene sceneID="hJj-nM-VjA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kih-GL-taW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="X3l-fa-tii" customClass="AllBoardsTableViewController" customModule="KanbanFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="irQ-Wx-ulN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -298,6 +311,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kih-GL-taW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230.5" y="430.5"/>
         </scene>

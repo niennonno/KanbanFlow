@@ -12,11 +12,6 @@ class UserDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet var aBoardName: UILabel!
     
-    @IBOutlet var aColumnView: UIView!
-    
-    @IBOutlet var aColumnName: UILabel!
-    
-    @IBOutlet var aColumnPoints: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

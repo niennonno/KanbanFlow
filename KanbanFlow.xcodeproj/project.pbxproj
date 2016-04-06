@@ -31,6 +31,7 @@
 		7376A8E01CA96556008C99C4 /* KanbanFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7376A8DF1CA96556008C99C4 /* KanbanFlowUITests.swift */; };
 		73DB3C4F1CAC126900EF1967 /* UserDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */; };
 		73E21DE81CABCAE400FF2427 /* allUserTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */; };
+		73F6358F1CB4FC0700C0998E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F6358E1CB4FC0700C0998E /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7376A8E11CA96556008C99C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewController.swift; sourceTree = "<group>"; };
 		73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allUserTableTableViewController.swift; sourceTree = "<group>"; };
+		73F6358E1CB4FC0700C0998E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		9C4FBF7E51B5EEFF865B85D6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C9EAA86D37CCD3301F41D1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,8 +210,9 @@
 				73E21DE71CABCAE400FF2427 /* allUserTableTableViewController.swift */,
 				730F39EA1CB3DEDA009250F8 /* AllBoardsTableViewController.swift */,
 				730F39EC1CB3E73C009250F8 /* UserTableViewCell.swift */,
-				730F39EE1CB3F02E009250F8 /* UserDetailsTableViewCell.swift */,
 				73DB3C4E1CAC126900EF1967 /* UserDetailsTableViewController.swift */,
+				730F39EE1CB3F02E009250F8 /* UserDetailsTableViewCell.swift */,
+				73F6358E1CB4FC0700C0998E /* CardView.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				7376A8C01CA96556008C99C4 /* AppDelegate.swift in Sources */,
 				730F39E61CB3CB75009250F8 /* MinoruTextField.swift in Sources */,
 				730F39E31CB3CB75009250F8 /* JiroTextField.swift in Sources */,
+				73F6358F1CB4FC0700C0998E /* CardView.swift in Sources */,
 				730F39E01CB3CB75009250F8 /* HoshiTextField.swift in Sources */,
 				730F39E21CB3CB75009250F8 /* IsaoTextField.swift in Sources */,
 				730F39E81CB3CB75009250F8 /* YokoTextField.swift in Sources */,
