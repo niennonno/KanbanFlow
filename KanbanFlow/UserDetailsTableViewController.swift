@@ -72,8 +72,49 @@ class UserDetailsTableViewController: UITableViewController {
 
         cell.aBoardName.text = Data[indexPath.row].boardsName
         
-        // Configure the cell...
+        if Data[indexPath.row].columns.count == 0 {
+        
+            let v1 = CardView(frame: CGRect(x: 5, y: 5, width: 140, height: 100))
+            
+            v1.columnNameLabel.text = "No Data"
+            v1.estimateLabel.text = ""
+            v1.spentLabel.text = ""
+            
+            cell.scrollView.addSubview(v1)
+        
+        } else {
+            
+          //  var columnData = self.Data[indexPath.row]["columns"] as [NSDictionary]
 
+            var columnData = [NSDictionary]()
+            let numberOfColumns = Data[indexPath.row].columns.count
+            let width = 160
+            
+            columnData = Data[indexPath.row].columns
+            
+            for( var i = 0; i < numberOfColumns; i++){
+                
+                let v1 = CardView(frame: CGRect(x: (width * i) + 5, y: 5, width: 140, height: 100))
+                
+                
+                v1.columnNameLabel.text = columnData[i]["columnName"] as? String
+
+
+                v1.estimateLabel.text = "Estimate: \(columnData[i]["timeEstimate"] as! Int)"
+                v1.spentLabel.text = "Spent: \(columnData[i]["timeSpent"] as! Int)"
+                
+                cell.scrollView.addSubview(v1)
+
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
         return cell
     }
     
